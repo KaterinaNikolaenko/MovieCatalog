@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jal-fh-9k5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,31 +10,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List Of Movies View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieCatalog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListOfMoviesViewController" customModule="MovieCatalog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AHt-KP-5lH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="snI-tn-ss8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bhz-1y-e2h"/>
+                                </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dfd-VV-fjP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AHt-KP-5lH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aIm-cz-7IF"/>
+                            <constraint firstItem="AHt-KP-5lH" firstAttribute="top" secondItem="dfd-VV-fjP" secondAttribute="bottom" id="Ckt-g9-yiY"/>
+                            <constraint firstItem="dfd-VV-fjP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LLe-MS-thJ"/>
+                            <constraint firstItem="dfd-VV-fjP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U5G-iK-NQU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AHt-KP-5lH" secondAttribute="trailing" id="kQg-az-WxB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AHt-KP-5lH" secondAttribute="bottom" id="m7X-In-J2t"/>
                             <constraint firstItem="AHt-KP-5lH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ncB-WE-gf1"/>
+                            <constraint firstItem="dfd-VV-fjP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uCS-Gz-C87"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="maG-Qu-FJ8"/>
+                    <connections>
+                        <outlet property="tableView" destination="AHt-KP-5lH" id="GO1-vW-NOu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="372" y="32.833583208395808"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I0p-Yv-MZ6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jal-fh-9k5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HLs-Qx-Bgs">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5Bc-fN-Q0S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQ0-ke-a2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-415" y="15"/>
         </scene>
     </scenes>
 </document>
