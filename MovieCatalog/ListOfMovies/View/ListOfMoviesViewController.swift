@@ -56,9 +56,7 @@ class ListOfMoviesViewController: UIViewController {
     
     private func setupNavigation() {
         navigationItem.title = "My movies"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addMovie))
-        
-        searchBar.returnKeyType = .done
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addMovie))        
     }
     
     private func setupSearchBar() {
@@ -67,7 +65,7 @@ class ListOfMoviesViewController: UIViewController {
     }
     
     @objc func addMovie() {
-       print("Add movie")
+       performSegue(withIdentifier: "Add", sender: nil)
     }
 }
 
@@ -96,7 +94,7 @@ extension ListOfMoviesViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "Details", sender: movies[indexPath.row])
+        performSegue(withIdentifier: "Details", sender: movies[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,7 +127,7 @@ extension ListOfMoviesViewController: UISearchBarDelegate {
 // MARK: - ListMoviePresenterOutput
 extension ListOfMoviesViewController: ListMoviesPresenterOutput {
     func displayError() {
-        
+        print("Error")
     }
     
     func displayData(movies: [Movie]) {

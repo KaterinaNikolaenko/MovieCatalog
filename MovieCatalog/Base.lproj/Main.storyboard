@@ -81,6 +81,7 @@
                         <outlet property="searchBar" destination="dfd-VV-fjP" id="edo-VC-Iyp"/>
                         <outlet property="tableView" destination="AHt-KP-5lH" id="GO1-vW-NOu"/>
                         <segue destination="b64-ji-ifd" kind="show" identifier="Details" id="pip-H4-5Pa"/>
+                        <segue destination="1Ez-BZ-x1C" kind="presentation" identifier="Add" id="4ku-Ck-Vwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,13 +160,31 @@
             </objects>
             <point key="canvasLocation" x="1106" y="45"/>
         </scene>
-        <!--View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="31S-Ve-Fbj">
             <objects>
-                <viewController id="1Ez-BZ-x1C" sceneMemberID="viewController">
+                <viewController id="1Ez-BZ-x1C" customClass="AddViewController" customModule="MovieCatalog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DCG-Fv-hTq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-Um-dC9">
+                                <rect key="frame" x="170" y="496" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveAction:" destination="1Ez-BZ-x1C" eventType="touchUpInside" id="b3g-Wf-srD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nr-dq-ymg">
+                                <rect key="frame" x="163" y="544" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="1Ez-BZ-x1C" eventType="touchUpInside" id="MIb-Er-rGy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="awK-GW-qZR"/>
                     </view>

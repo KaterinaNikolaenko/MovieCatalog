@@ -28,7 +28,7 @@ class ListPresenter: NSObject {
 // MARK: - ListMoviesInteractorOutput
 extension ListPresenter: ListMoviesInteractorOutput {
     func presentFailure() {
-        
+        output.displayError()
     }
     
     func presentData(movies: [Movie]) {
