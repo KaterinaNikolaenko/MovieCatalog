@@ -32,7 +32,7 @@ class DetailsViewController: UIViewController {
         movieImageView.image = UIImage(named: "placeholder")
         titleLabel.text = movie.title
         genreLabel.text = movie.genre 
-        //        yearOfProductionLabel.text = movie.
+        yearOfProductionLabel.text = movie.yearOfProduction
         descriptionTextView.text = movie.description
     }
 }

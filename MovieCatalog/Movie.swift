@@ -12,16 +12,16 @@ class Movie {
     var id: String
     var title: String
     var genre: String?
-    //    var poster: Data
-    //    var yearOfProduction: Date
+//    var poster: Data?
+    var yearOfProduction: String
     var description: String?
     
-    init(title: String, genre: String? = ""/*, yearOfProduction: Date*/, description: String? = "") {
+    init(title: String, genre: String? = "", yearOfProduction: String, description: String? = "") {
         self.id = UUID().uuidString
         self.title = title
         self.genre = genre
         //self.poster = poster
-        //        self.yearOfProduction = yearOfProduction
+        self.yearOfProduction = yearOfProduction
         self.description = description
     }
 }

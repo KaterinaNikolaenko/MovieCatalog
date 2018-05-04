@@ -29,18 +29,18 @@ class ListInteractor: NSObject {
 // MARK: - ListMoviesViewControllerOutput
 extension ListInteractor: ListMoviesViewControllerOutput {
     func findList(filterText: String) {
-        filterMovies = movies.filter({$0.title.contains(filterText) || ($0.description?.contains(filterText))! || ($0.genre?.contains(filterText))!})
+        filterMovies = movies.filter({$0.title.contains(filterText) || $0.yearOfProduction.contains(filterText) || ($0.description?.contains(filterText))! || ($0.genre?.contains(filterText))!})
         output.presentData(movies: filterMovies)
     }
     
     func displayList() {
-        movies.append(Movie(title: "aaaaaa", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "ddddddd", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "hhhhhhhh", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "iiiiioooo", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "pppppp", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "wwwwww", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "bbbbbb", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "aaaaaa", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "ddddddd", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "hhhhhhhh", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "iiiiioooo", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "pppppp", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "wwwwww", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
+        movies.append(Movie(title: "bbbbbb", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
         
         output.presentData(movies: movies)
     }

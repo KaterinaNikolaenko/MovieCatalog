@@ -168,17 +168,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-Um-dC9">
-                                <rect key="frame" x="170" y="496" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HCI-9d-Xqz" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="30" y="70" width="315" height="44"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D3y-EP-AGd" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="30" y="139" width="315" height="44"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter Genre"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Genre"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Genre"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9r9-wQ-QaD">
+                                <rect key="frame" x="30" y="208" width="315" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0vh-JH-Dta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozU-5V-Lyy">
+                                <rect key="frame" x="30" y="328" width="315" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="IgY-jC-DJM"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-Um-dC9">
+                                <rect key="frame" x="166.5" y="468" width="42" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveAction:" destination="1Ez-BZ-x1C" eventType="touchUpInside" id="b3g-Wf-srD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nr-dq-ymg">
-                                <rect key="frame" x="163" y="544" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nr-dq-ymg">
+                                <rect key="frame" x="158" y="533" width="59" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelAction:" destination="1Ez-BZ-x1C" eventType="touchUpInside" id="MIb-Er-rGy"/>
@@ -186,12 +258,36 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="awK-GW-qZR" firstAttribute="trailing" secondItem="D3y-EP-AGd" secondAttribute="trailing" constant="30" id="22H-em-WaB"/>
+                            <constraint firstItem="HCI-9d-Xqz" firstAttribute="top" secondItem="awK-GW-qZR" secondAttribute="top" constant="50" id="49H-vl-Kt6"/>
+                            <constraint firstItem="awK-GW-qZR" firstAttribute="trailing" secondItem="9r9-wQ-QaD" secondAttribute="trailing" constant="30" id="4D2-uU-Z3W"/>
+                            <constraint firstItem="0nr-dq-ymg" firstAttribute="top" secondItem="QD5-Um-dC9" secondAttribute="bottom" constant="30" id="Aer-Ae-BLJ"/>
+                            <constraint firstItem="D3y-EP-AGd" firstAttribute="top" secondItem="HCI-9d-Xqz" secondAttribute="bottom" constant="25" id="IJU-Ow-I3B"/>
+                            <constraint firstItem="9r9-wQ-QaD" firstAttribute="leading" secondItem="awK-GW-qZR" secondAttribute="leading" constant="30" id="IQP-cJ-KeI"/>
+                            <constraint firstItem="awK-GW-qZR" firstAttribute="trailing" secondItem="ozU-5V-Lyy" secondAttribute="trailing" constant="30" id="Lh1-Nb-fau"/>
+                            <constraint firstItem="D3y-EP-AGd" firstAttribute="leading" secondItem="awK-GW-qZR" secondAttribute="leading" constant="30" id="XeM-k5-E43"/>
+                            <constraint firstItem="QD5-Um-dC9" firstAttribute="centerX" secondItem="DCG-Fv-hTq" secondAttribute="centerX" id="emk-ZA-d85"/>
+                            <constraint firstItem="ozU-5V-Lyy" firstAttribute="top" secondItem="9r9-wQ-QaD" secondAttribute="bottom" constant="20" id="hwu-MF-Q2K"/>
+                            <constraint firstItem="awK-GW-qZR" firstAttribute="trailing" secondItem="HCI-9d-Xqz" secondAttribute="trailing" constant="30" id="q9b-dZ-Kqx"/>
+                            <constraint firstItem="HCI-9d-Xqz" firstAttribute="leading" secondItem="awK-GW-qZR" secondAttribute="leading" constant="30" id="tEs-Dm-iDo"/>
+                            <constraint firstItem="ozU-5V-Lyy" firstAttribute="leading" secondItem="awK-GW-qZR" secondAttribute="leading" constant="30" id="tq7-ZH-SDd"/>
+                            <constraint firstItem="0nr-dq-ymg" firstAttribute="centerX" secondItem="DCG-Fv-hTq" secondAttribute="centerX" id="uYq-Fx-yXQ"/>
+                            <constraint firstItem="QD5-Um-dC9" firstAttribute="top" secondItem="ozU-5V-Lyy" secondAttribute="bottom" constant="40" id="uaH-7j-lwo"/>
+                            <constraint firstItem="9r9-wQ-QaD" firstAttribute="top" secondItem="D3y-EP-AGd" secondAttribute="bottom" constant="25" id="ztN-Tb-FZ6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="awK-GW-qZR"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="9r9-wQ-QaD" id="inl-xC-qBl"/>
+                        <outlet property="genreTextField" destination="D3y-EP-AGd" id="bD1-FQ-scv"/>
+                        <outlet property="titleTextField" destination="HCI-9d-Xqz" id="TCp-cZ-ysK"/>
+                        <outlet property="yearPickerView" destination="ozU-5V-Lyy" id="GSw-GB-T5o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wA1-P5-Xjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="757"/>
+            <point key="canvasLocation" x="748" y="756.97151424287858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I0p-Yv-MZ6">
