@@ -96,7 +96,15 @@ extension ListOfMoviesViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.performSegue(withIdentifier: "Details", sender: movies[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Details"{
+            if let nextViewController = segue.destination as? DetailsViewController{
+                nextViewController.movie = sender as! Movie
+            }
+        }
     }
 }
 

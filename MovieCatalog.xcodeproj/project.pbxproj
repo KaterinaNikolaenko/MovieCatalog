@@ -62,6 +62,7 @@
 		068A8780209BB0F1007174D0 /* MovieCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				06FD6883209D0DD200B64F59 /* AddMovie */,
 				06D736AF209CE44F002BEE87 /* Models */,
 				068A8796209BB240007174D0 /* ListOfMovies */,
 				068A8781209BB0F1007174D0 /* AppDelegate.swift */,
@@ -114,6 +115,21 @@
 				06EAB6BA209CE5A600B8B97F /* Movie.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		06FD6883209D0DD200B64F59 /* AddMovie */ = {
+			isa = PBXGroup;
+			children = (
+				06FD6884209D0DE800B64F59 /* View */,
+			);
+			path = AddMovie;
+			sourceTree = "<group>";
+		};
+		06FD6884209D0DE800B64F59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

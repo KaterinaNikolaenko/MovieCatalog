@@ -80,7 +80,7 @@
                     <connections>
                         <outlet property="searchBar" destination="dfd-VV-fjP" id="edo-VC-Iyp"/>
                         <outlet property="tableView" destination="AHt-KP-5lH" id="GO1-vW-NOu"/>
-                        <segue destination="b64-ji-ifd" kind="show" id="pip-H4-5Pa"/>
+                        <segue destination="b64-ji-ifd" kind="show" identifier="Details" id="pip-H4-5Pa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,7 +120,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gvz-dC-ozf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvz-dC-ozf">
                                 <rect key="frame" x="20" y="378" width="335" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -148,13 +148,31 @@
                         <viewLayoutGuide key="safeArea" id="kh0-JE-xdn"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionTextView" destination="gvz-dC-ozf" id="ei3-QV-bYi"/>
+                        <outlet property="genreLabel" destination="eL3-7K-XVX" id="P9O-MD-gph"/>
                         <outlet property="movieImageView" destination="kgW-ls-53N" id="BoY-Lf-0dj"/>
                         <outlet property="titleLabel" destination="mO6-yn-bfc" id="9kn-zg-4kQ"/>
+                        <outlet property="yearOfProductionLabel" destination="Or6-pg-3Ny" id="mkP-rZ-zHS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vd-bj-FTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1106" y="45"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="31S-Ve-Fbj">
+            <objects>
+                <viewController id="1Ez-BZ-x1C" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DCG-Fv-hTq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="awK-GW-qZR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wA1-P5-Xjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="748" y="757"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I0p-Yv-MZ6">
