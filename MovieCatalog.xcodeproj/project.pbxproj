@@ -14,6 +14,7 @@
 		068A878C209BB0F1007174D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068A878A209BB0F1007174D0 /* LaunchScreen.storyboard */; };
 		068A8799209BB38E007174D0 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068A8798209BB38E007174D0 /* ListPresenter.swift */; };
 		068A879B209BB3A5007174D0 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068A879A209BB3A5007174D0 /* ListInteractor.swift */; };
+		06EAB6BB209CE5A600B8B97F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAB6BA209CE5A600B8B97F /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		068A878D209BB0F1007174D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		068A8798209BB38E007174D0 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		068A879A209BB3A5007174D0 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
+		06EAB6BA209CE5A600B8B97F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		068A8780209BB0F1007174D0 /* MovieCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				06D736AF209CE44F002BEE87 /* Models */,
 				068A8796209BB240007174D0 /* ListOfMovies */,
 				068A8781209BB0F1007174D0 /* AppDelegate.swift */,
 				068A8785209BB0F1007174D0 /* Main.storyboard */,
@@ -95,7 +98,6 @@
 		068A8796209BB240007174D0 /* ListOfMovies */ = {
 			isa = PBXGroup;
 			children = (
-				068A8797209BB364007174D0 /* Models */,
 				068A8795209BB224007174D0 /* Interactor */,
 				068A8794209BB214007174D0 /* Presenter */,
 				068A8793209BB1EA007174D0 /* View */,
@@ -103,11 +105,12 @@
 			path = ListOfMovies;
 			sourceTree = "<group>";
 		};
-		068A8797209BB364007174D0 /* Models */ = {
+		06D736AF209CE44F002BEE87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				06EAB6BA209CE5A600B8B97F /* Movie.swift */,
 			);
-			path = Models;
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +189,7 @@
 				068A8799209BB38E007174D0 /* ListPresenter.swift in Sources */,
 				068A879B209BB3A5007174D0 /* ListInteractor.swift in Sources */,
 				068A8782209BB0F1007174D0 /* AppDelegate.swift in Sources */,
+				06EAB6BB209CE5A600B8B97F /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
