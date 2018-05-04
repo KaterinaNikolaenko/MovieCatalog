@@ -16,6 +16,7 @@ protocol ListMoviesInteractorOutput {
 class ListInteractor: NSObject {
     
     private var movies: [Movie] = []
+    private var filterMovies: [Movie] = []
     private var output: ListMoviesInteractorOutput!
     
     // MARK: - Initializers
@@ -27,6 +28,11 @@ class ListInteractor: NSObject {
 
 // MARK: - ListMoviesViewControllerOutput
 extension ListInteractor: ListMoviesViewControllerOutput {
+    func findList(filterText: String) {
+        filterMovies = movies.filter({$0.title.contains(filterText) || ($0.description?.contains(filterText))! || ($0.genre?.contains(filterText))!})
+        output.presentData(movies: filterMovies)
+    }
+    
     func displayList() {
         movies.append(Movie(title: "aaaaaa", description: "djnjfdjkldfglkfjg"))
         movies.append(Movie(title: "ddddddd", description: "djnjfdjkldfglkfjg"))
