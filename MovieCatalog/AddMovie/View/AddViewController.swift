@@ -5,6 +5,9 @@
 //  Created by Katerina on 05.05.18.
 //  Copyright © 2018 Katerina. All rights reserved.
 //
+protocol DetailsViewControllerOutput: class {
+    func saveData(title: String, genre: String, poster: UIImage, yearOfProduction: String, description: String)
+}
 
 import UIKit
 import SkyFloatingLabelTextField
@@ -27,14 +30,23 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     
     private var currentYear: String = ""
     private var poster: UIImage? = UIImage(named: "placeholder")
+    private var output: DetailsViewControllerOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupVIPInstances()
         setup()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func setupVIPInstances() {
+        let presenter = AddPresenter(output: self)
+        let interactor = AddInteractor(output: presenter)
+        output = interactor
     }
     
     private func setup() {
@@ -62,8 +74,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
         }
         
         if isValidData {
-            self.dismiss(animated: true, completion: nil)
-            let newMovie = Movie(title: titleTextField.text!, genre: genreTextField.text, poster: poster, yearOfProduction: currentYear, description: descriptionTextView.text)
+            currentYear = currentYear == "" ? yearsTillNow[0] : currentYear
+            output.saveData(title: titleTextField.text!, genre: genreTextField.text!, poster: poster!, yearOfProduction: currentYear, description: descriptionTextView.text)
         }
     }
     
@@ -123,6 +135,18 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentYear = yearsTillNow[row]
+    }
+}
+
+// MARK: - DetailsPresenterOutput
+extension AddViewController: DetailsPresenterOutput {
+    func displayData() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func displayError() {
+        print("Error!")
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
