@@ -30,7 +30,8 @@ class ListInteractor: NSObject {
 
 // MARK: - ListMoviesViewControllerOutput
 extension ListInteractor: ListMoviesViewControllerOutput {
-    func findList(filterText: String) {
+    func findList(movies: [Movie], filterText: String) {
+        self.movies = movies
         filterMovies = []
         filterMovies = movies.filter({$0.title.contains(filterText) || $0.yearOfProduction.contains(filterText) || ($0.movieDescription?.contains(filterText))! || ($0.genre?.contains(filterText))!})
         output.presentData(movies: movies, filterMovies: filterMovies)

@@ -7,7 +7,7 @@
 //
 protocol ListMoviesViewControllerOutput: class {
     func displayList()
-    func findList(filterText: String)
+    func findList(movies: [Movie], filterText: String)
 }
 
 import UIKit
@@ -27,7 +27,6 @@ class ListOfMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,8 +53,11 @@ class ListOfMoviesViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
-        output.displayList()
+        if isSearching {
+            output.findList(movies: movies, filterText: searchBar.text!)
+        } else {
+            output.displayList()
+        }
     }
     
     private func setupNavigation() {
@@ -91,17 +93,31 @@ extension ListOfMoviesViewController: UITableViewDataSource, UITableViewDelegate
         if isSearching {
             cell.textLabel?.text = filterMovies[indexPath.row].title
             cell.detailTextLabel?.text = filterMovies[indexPath.row].movieDescription
-            cell.imageView?.image = filterMovies[indexPath.row].poster != nil ? UIImage(data: filterMovies[indexPath.row].poster! as Data) : UIImage(named: "placeholder")
+            
+            let dataImage = filterMovies[indexPath.row].poster
+            DispatchQueue.global().async {
+                let currentImage = dataImage != nil ? UIImage(data: dataImage! as Data) : UIImage(named: "placeholder")
+                DispatchQueue.main.async {
+                    cell.imageView?.image = currentImage
+                }
+            }
         } else {
             cell.textLabel?.text = movies[indexPath.row].title
             cell.detailTextLabel?.text = movies[indexPath.row].movieDescription
-            cell.imageView?.image = movies[indexPath.row].poster != nil ? UIImage(data: movies[indexPath.row].poster! as Data) : UIImage(named: "placeholder")
+            
+            let dataImage = movies[indexPath.row].poster
+            DispatchQueue.global().async {
+                let currentImage = dataImage != nil ? UIImage(data: dataImage! as Data) : UIImage(named: "placeholder")
+                DispatchQueue.main.async {
+                    cell.imageView?.image = currentImage
+                }
+            }
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Details", sender: movies[indexPath.row])
+        performSegue(withIdentifier: "Details", sender: isSearching ? filterMovies[indexPath.row] : movies[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -121,7 +137,7 @@ extension ListOfMoviesViewController: UISearchBarDelegate {
             output.displayList()
         } else {
             isSearching = true
-            output.findList(filterText: searchBar.text!)
+            output.findList(movies: movies, filterText: searchBar.text!)
         }
     }
     
