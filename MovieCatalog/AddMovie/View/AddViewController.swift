@@ -20,6 +20,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     @IBOutlet weak var yearPickerView: UIPickerView!
     @IBOutlet weak var posterImageView: UIImageView!
     
+    private let placeholderDescription = "Please enter description"
+    
     private var yearsTillNow : [String] {
         var years = [String]()
         for i in (1900..<2018).reversed() {
@@ -67,7 +69,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     
     private func setup() {
         descriptionTextView.delegate = self
-        descriptionTextView.text = "Please enter description"
+        descriptionTextView.text = placeholderDescription
         descriptionTextView.textColor = UIColor.lightGray
         
         descriptionTextView!.layer.borderWidth = 1
@@ -91,7 +93,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
         
         if isValidData {
             currentYear = currentYear == "" ? yearsTillNow[0] : currentYear
-            output.saveData(title: titleTextField.text!, genre: genreTextField.text!, poster: poster!, yearOfProduction: currentYear, description: descriptionTextView.text)
+            let descriptionText = descriptionTextView.text == placeholderDescription ? "" : descriptionTextView.text
+            output.saveData(title: titleTextField.text!, genre: genreTextField.text!, poster: poster!, yearOfProduction: currentYear, description: descriptionText!)
         }
     }
     
@@ -125,7 +128,7 @@ extension AddViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Please enter description"
+            textView.text = placeholderDescription
             textView.textColor = UIColor.lightGray
         }
     }
@@ -136,6 +139,17 @@ extension AddViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text {
+            if let titleTextField = textField as? SkyFloatingLabelTextField {
+                if text.count == 0 {
+                    titleTextField.errorMessage = ""
+                }
+            }
+        }
         return true
     }
 }

@@ -61,6 +61,7 @@ class ListOfMoviesViewController: UIViewController {
     private func setupNavigation() {
         navigationItem.title = "My movies"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addMovie))
+        self.navigationController?.navigationBar.tintColor = UIColor.red
     }
     
     private func setupSearchBar() {
