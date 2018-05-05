@@ -23,16 +23,16 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         config()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     private func config() {
-        movieImageView.image = UIImage(named: "placeholder")
+        movieImageView.image = movie.poster != nil ? UIImage(data: movie.poster! as Data) : UIImage(named: "placeholder")
         titleLabel.text = movie.title
-        genreLabel.text = movie.genre 
+        genreLabel.text = movie.genre
         yearOfProductionLabel.text = movie.yearOfProduction
-        descriptionTextView.text = movie.description
+        descriptionTextView.text = movie.movieDescription
     }
 }

@@ -38,7 +38,23 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
         setupVIPInstances()
         setup()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: Notification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    @objc func keyboardWillAppear(_ notification: NSNotification) {
+        self.view.frame.origin.y = -120
+    }
+    
+    @objc func keyboardWillDisappear(_ notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -99,7 +115,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
 }
 
 // MARK: - UITextViewDelegate
-extension AddViewController: UITextViewDelegate {
+extension AddViewController: UITextViewDelegate, UITextFieldDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -116,6 +132,11 @@ extension AddViewController: UITextViewDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

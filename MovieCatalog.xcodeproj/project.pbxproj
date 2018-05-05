@@ -20,6 +20,8 @@
 		06FD688A209D1C7600B64F59 /* AddInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6889209D1C7600B64F59 /* AddInteractor.swift */; };
 		06FD688C209D1C8900B64F59 /* AddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD688B209D1C8900B64F59 /* AddPresenter.swift */; };
 		06FD688F209E0D0300B64F59 /* Results+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD688E209E0D0300B64F59 /* Results+extension.swift */; };
+		06FD6892209E0E4700B64F59 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6891209E0E4700B64F59 /* DBManager.swift */; };
+		06FD6894209E0E6D00B64F59 /* MovieWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6893209E0E6D00B64F59 /* MovieWorker.swift */; };
 		D02384179874D1BF642F1FC9 /* Pods_MovieCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F737F4AE68DD11AC7E9EA2D /* Pods_MovieCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		06FD6889209D1C7600B64F59 /* AddInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInteractor.swift; sourceTree = "<group>"; };
 		06FD688B209D1C8900B64F59 /* AddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPresenter.swift; sourceTree = "<group>"; };
 		06FD688E209E0D0300B64F59 /* Results+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+extension.swift"; sourceTree = "<group>"; };
+		06FD6891209E0E4700B64F59 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		06FD6893209E0E6D00B64F59 /* MovieWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWorker.swift; sourceTree = "<group>"; };
 		3F737F4AE68DD11AC7E9EA2D /* Pods_MovieCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54279FC490A0E9F03089B1CA /* Pods-MovieCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieCatalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieCatalog/Pods-MovieCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		E09098B9D8A3C9923D9A50FA /* Pods-MovieCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieCatalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieCatalog/Pods-MovieCatalog.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 		068A8796209BB240007174D0 /* ListOfMovies */ = {
 			isa = PBXGroup;
 			children = (
+				06FD6890209E0E2C00B64F59 /* Worker */,
 				068A8795209BB224007174D0 /* Interactor */,
 				068A8794209BB214007174D0 /* Presenter */,
 				068A8793209BB1EA007174D0 /* View */,
@@ -173,6 +178,15 @@
 				06FD688E209E0D0300B64F59 /* Results+extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		06FD6890209E0E2C00B64F59 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				06FD6891209E0E4700B64F59 /* DBManager.swift */,
+				06FD6893209E0E6D00B64F59 /* MovieWorker.swift */,
+			);
+			path = Worker;
 			sourceTree = "<group>";
 		};
 		B1B6078B0CAA8DAD6BA23DED /* Pods */ = {
@@ -327,6 +341,7 @@
 			files = (
 				06FD688C209D1C8900B64F59 /* AddPresenter.swift in Sources */,
 				068A8784209BB0F1007174D0 /* ListOfMoviesViewController.swift in Sources */,
+				06FD6894209E0E6D00B64F59 /* MovieWorker.swift in Sources */,
 				06FD688F209E0D0300B64F59 /* Results+extension.swift in Sources */,
 				068A8799209BB38E007174D0 /* ListPresenter.swift in Sources */,
 				06FD688A209D1C7600B64F59 /* AddInteractor.swift in Sources */,
@@ -335,6 +350,7 @@
 				068A8782209BB0F1007174D0 /* AppDelegate.swift in Sources */,
 				06EAB6BB209CE5A600B8B97F /* Movie.swift in Sources */,
 				06FD6882209D098A00B64F59 /* DetailsViewController.swift in Sources */,
+				06FD6892209E0E4700B64F59 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

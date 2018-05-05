@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListMoviesPresenterOutput: class {
-    func displayData(movies: [Movie])
+    func displayData(movies: [Movie], filterMovies: [Movie]?)
     func displayError()
 }
 
@@ -17,6 +17,7 @@ class ListPresenter: NSObject {
     
     private var output: ListMoviesPresenterOutput!
     private var movies: [Movie] = []
+    private var filterMovies: [Movie] = []
     
     // MARK: - Initializers
     init(output: ListMoviesPresenterOutput) {
@@ -27,12 +28,14 @@ class ListPresenter: NSObject {
 
 // MARK: - ListMoviesInteractorOutput
 extension ListPresenter: ListMoviesInteractorOutput {
+    
     func presentFailure() {
         output.displayError()
     }
     
-    func presentData(movies: [Movie]) {
+    func presentData(movies: [Movie], filterMovies: [Movie]?) {
         self.movies = movies
-        output.displayData(movies: movies)
+        self.filterMovies = filterMovies ?? []
+        output.displayData(movies: movies, filterMovies: filterMovies)
     }
 }

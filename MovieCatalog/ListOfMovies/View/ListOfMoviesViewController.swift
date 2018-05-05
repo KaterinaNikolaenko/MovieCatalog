@@ -27,6 +27,10 @@ class ListOfMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setup()
     }
     
@@ -56,7 +60,7 @@ class ListOfMoviesViewController: UIViewController {
     
     private func setupNavigation() {
         navigationItem.title = "My movies"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addMovie))        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addMovie))
     }
     
     private func setupSearchBar() {
@@ -65,7 +69,7 @@ class ListOfMoviesViewController: UIViewController {
     }
     
     @objc func addMovie() {
-       performSegue(withIdentifier: "Add", sender: nil)
+        performSegue(withIdentifier: "Add", sender: nil)
     }
 }
 
@@ -85,10 +89,12 @@ extension ListOfMoviesViewController: UITableViewDataSource, UITableViewDelegate
         cell.imageView?.image = UIImage(named: "placeholder")
         if isSearching {
             cell.textLabel?.text = filterMovies[indexPath.row].title
-            cell.detailTextLabel?.text = filterMovies[indexPath.row].description
+            cell.detailTextLabel?.text = filterMovies[indexPath.row].movieDescription
+            cell.imageView?.image = filterMovies[indexPath.row].poster != nil ? UIImage(data: filterMovies[indexPath.row].poster! as Data) : UIImage(named: "placeholder")
         } else {
             cell.textLabel?.text = movies[indexPath.row].title
-            cell.detailTextLabel?.text = movies[indexPath.row].description
+            cell.detailTextLabel?.text = movies[indexPath.row].movieDescription
+            cell.imageView?.image = movies[indexPath.row].poster != nil ? UIImage(data: movies[indexPath.row].poster! as Data) : UIImage(named: "placeholder")
         }
         return cell
     }
@@ -120,6 +126,7 @@ extension ListOfMoviesViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        isSearching = false
         output.displayList()
     }
 }
@@ -130,9 +137,9 @@ extension ListOfMoviesViewController: ListMoviesPresenterOutput {
         print("Error")
     }
     
-    func displayData(movies: [Movie]) {
+    func displayData(movies: [Movie], filterMovies: [Movie]?) {
         self.movies = movies
-        self.filterMovies = movies
+        self.filterMovies = filterMovies ?? []
         tableView.reloadData()
     }
 }

@@ -8,21 +8,29 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class Movie {
-    var id: String
-    var title: String
-    var genre: String?
-    var poster: UIImage?
-    var yearOfProduction: String
-    var description: String?
+class Movie: Object {
+    @objc dynamic var id = "0"
+    @objc dynamic var title: String!
+    @objc dynamic var genre: String?
+    @objc dynamic var poster: NSData?
+    @objc dynamic var yearOfProduction: String!
+    @objc dynamic var movieDescription: String?
     
-    init(title: String, genre: String? = "", poster: UIImage? = UIImage(named: "placeholder"), yearOfProduction: String, description: String? = "") {
-        self.id = UUID().uuidString
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    convenience init(title: String, genre: String? = "", poster: NSData? = NSData(data: UIImagePNGRepresentation(UIImage(named: "placeholder")!)!) , yearOfProduction: String, movieDescription: String? = "") {
+        self.init()
+        self.id = NSUUID().uuidString
         self.title = title
         self.genre = genre
-        self.poster = poster
+        self.poster = poster!
         self.yearOfProduction = yearOfProduction
-        self.description = description
+        self.movieDescription = movieDescription
     }
 }
+
+

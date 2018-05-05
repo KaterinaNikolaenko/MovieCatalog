@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListMoviesInteractorOutput {
-    func presentData(movies: [Movie])
+    func presentData(movies: [Movie], filterMovies: [Movie]?)
     func presentFailure()
 }
 
@@ -18,30 +18,27 @@ class ListInteractor: NSObject {
     private var movies: [Movie] = []
     private var filterMovies: [Movie] = []
     private var output: ListMoviesInteractorOutput!
+    private var worker: MovieWorker!
     
     // MARK: - Initializers
     init(output: ListMoviesInteractorOutput) {
         super.init()
         self.output = output
+        self.worker = MovieWorker()
     }
 }
 
 // MARK: - ListMoviesViewControllerOutput
 extension ListInteractor: ListMoviesViewControllerOutput {
     func findList(filterText: String) {
-        filterMovies = movies.filter({$0.title.contains(filterText) || $0.yearOfProduction.contains(filterText) || ($0.description?.contains(filterText))! || ($0.genre?.contains(filterText))!})
-        output.presentData(movies: filterMovies)
+        filterMovies = []
+        filterMovies = movies.filter({$0.title.contains(filterText) || $0.yearOfProduction.contains(filterText) || ($0.movieDescription?.contains(filterText))! || ($0.genre?.contains(filterText))!})
+        output.presentData(movies: movies, filterMovies: filterMovies)
     }
     
     func displayList() {
-        movies.append(Movie(title: "aaaaaa", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "ddddddd", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "hhhhhhhh", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "iiiiioooo", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "pppppp", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "wwwwww", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        movies.append(Movie(title: "bbbbbb", yearOfProduction: "2017", description: "djnjfdjkldfglkfjg"))
-        
-        output.presentData(movies: movies)
+        movies = []
+        movies = worker.getMovies()
+        output.presentData(movies: movies, filterMovies: [])
     }
 }
