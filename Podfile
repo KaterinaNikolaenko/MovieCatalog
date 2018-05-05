@@ -6,6 +6,7 @@ target 'MovieCatalog' do
   use_frameworks!
 
 	pod 'SkyFloatingLabelTextField'
+    pod 'RealmSwift'
 
   # Pods for MovieCatalog
 

@@ -19,6 +19,7 @@
 		06FD6888209D0E4900B64F59 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6887209D0E4900B64F59 /* AddViewController.swift */; };
 		06FD688A209D1C7600B64F59 /* AddInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6889209D1C7600B64F59 /* AddInteractor.swift */; };
 		06FD688C209D1C8900B64F59 /* AddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD688B209D1C8900B64F59 /* AddPresenter.swift */; };
+		06FD688F209E0D0300B64F59 /* Results+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD688E209E0D0300B64F59 /* Results+extension.swift */; };
 		D02384179874D1BF642F1FC9 /* Pods_MovieCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F737F4AE68DD11AC7E9EA2D /* Pods_MovieCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		06FD6887209D0E4900B64F59 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		06FD6889209D1C7600B64F59 /* AddInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInteractor.swift; sourceTree = "<group>"; };
 		06FD688B209D1C8900B64F59 /* AddPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPresenter.swift; sourceTree = "<group>"; };
+		06FD688E209E0D0300B64F59 /* Results+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+extension.swift"; sourceTree = "<group>"; };
 		3F737F4AE68DD11AC7E9EA2D /* Pods_MovieCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54279FC490A0E9F03089B1CA /* Pods-MovieCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieCatalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieCatalog/Pods-MovieCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		E09098B9D8A3C9923D9A50FA /* Pods-MovieCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieCatalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieCatalog/Pods-MovieCatalog.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		068A8780209BB0F1007174D0 /* MovieCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				06FD688D209E0CE400B64F59 /* Extensions */,
 				06FD6883209D0DD200B64F59 /* AddMovie */,
 				06D736AF209CE44F002BEE87 /* Models */,
 				068A8796209BB240007174D0 /* ListOfMovies */,
@@ -162,6 +165,14 @@
 				06FD6889209D1C7600B64F59 /* AddInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		06FD688D209E0CE400B64F59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				06FD688E209E0D0300B64F59 /* Results+extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B1B6078B0CAA8DAD6BA23DED /* Pods */ = {
@@ -292,10 +303,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieCatalog/Pods-MovieCatalog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +327,7 @@
 			files = (
 				06FD688C209D1C8900B64F59 /* AddPresenter.swift in Sources */,
 				068A8784209BB0F1007174D0 /* ListOfMoviesViewController.swift in Sources */,
+				06FD688F209E0D0300B64F59 /* Results+extension.swift in Sources */,
 				068A8799209BB38E007174D0 /* ListPresenter.swift in Sources */,
 				06FD688A209D1C7600B64F59 /* AddInteractor.swift in Sources */,
 				06FD6888209D0E4900B64F59 /* AddViewController.swift in Sources */,
