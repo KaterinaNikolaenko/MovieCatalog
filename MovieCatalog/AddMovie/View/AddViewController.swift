@@ -9,12 +9,13 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var genreTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var yearPickerView: UIPickerView!
+    @IBOutlet weak var posterImageView: UIImageView!
     
     private var yearsTillNow : [String] {
         var years = [String]()
@@ -25,6 +26,7 @@ class AddViewController: UIViewController {
     }
     
     private var currentYear: String = ""
+    private var poster: UIImage? = UIImage(named: "placeholder")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +63,25 @@ class AddViewController: UIViewController {
         
         if isValidData {
             self.dismiss(animated: true, completion: nil)
-            let newMovie = Movie(title: titleTextField.text!, genre: genreTextField.text, yearOfProduction: currentYear, description: descriptionTextView.text)
+            let newMovie = Movie(title: titleTextField.text!, genre: genreTextField.text, poster: poster, yearOfProduction: currentYear, description: descriptionTextView.text)
         }
     }
     
     @IBAction func cancelAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func getImageAction(_ sender: Any) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(image, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let theInfo:NSDictionary = info as NSDictionary
+        poster = theInfo.object(forKey: UIImagePickerControllerOriginalImage) as? UIImage
+        posterImageView.image = poster
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -84,6 +100,10 @@ extension AddViewController: UITextViewDelegate {
             textView.text = "Please enter description"
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
