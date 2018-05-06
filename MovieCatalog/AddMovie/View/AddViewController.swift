@@ -14,6 +14,7 @@ import SkyFloatingLabelTextField
 
 class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    //UI
     @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var genreTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -110,8 +111,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let theInfo:NSDictionary = info as NSDictionary
-        poster = theInfo.object(forKey: UIImagePickerControllerOriginalImage) as? UIImage
+        poster = info[UIImagePickerControllerOriginalImage] as? UIImage
         posterImageView.image = poster
         self.dismiss(animated: true, completion: nil)
     }

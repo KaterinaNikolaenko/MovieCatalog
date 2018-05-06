@@ -95,23 +95,14 @@ extension ListOfMoviesViewController: UITableViewDataSource, UITableViewDelegate
             cell.detailTextLabel?.text = filterMovies[indexPath.row].movieDescription
             
             let dataImage = filterMovies[indexPath.row].poster
-            DispatchQueue.global().async {
-                let currentImage = dataImage != nil ? UIImage(data: dataImage! as Data) : UIImage(named: "placeholder")
-                DispatchQueue.main.async {
-                    cell.imageView?.image = currentImage
-                }
-            }
+            cell.imageView?.image = UIImage(data: dataImage! as Data)
+            
         } else {
             cell.textLabel?.text = movies[indexPath.row].title
             cell.detailTextLabel?.text = movies[indexPath.row].movieDescription
             
             let dataImage = movies[indexPath.row].poster
-            DispatchQueue.global().async {
-                let currentImage = dataImage != nil ? UIImage(data: dataImage! as Data) : UIImage(named: "placeholder")
-                DispatchQueue.main.async {
-                    cell.imageView?.image = currentImage
-                }
-            }
+            cell.imageView?.image = UIImage(data: dataImage! as Data)
         }
         return cell
     }

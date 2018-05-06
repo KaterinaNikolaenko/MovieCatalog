@@ -26,7 +26,8 @@ class AddInteractor: NSObject, DetailsViewControllerOutput {
     }
     
     func saveData(title: String, genre: String, poster: UIImage, yearOfProduction: String, description: String) {
-        let newMovie = Movie(title: title, genre: genre, poster: NSData(data: UIImagePNGRepresentation(poster)!), yearOfProduction: yearOfProduction, movieDescription: description)
+        let imageData = UIImagePNGRepresentation(poster)
+        let newMovie = Movie(title: title, genre: genre, poster: imageData! as NSData, yearOfProduction: yearOfProduction, movieDescription: description)
         worker.saveMovie(movie: newMovie) { [weak self] (success) -> Void in
             self?.output.presentListOfData()
         }
